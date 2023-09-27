@@ -172,7 +172,7 @@ def reschedule(date):
         "appointments[consulate_appointment][time]": time,
     }
     r = requests.post(APPOINTMENT_URL, headers=headers, data=data)
-    if(r.text.find('Successfully Scheduled') != -1):
+    if(r.text.lower().find('Successfully Scheduled') != -1):
         title = "SUCCESS"
         msg = f"Rescheduled Successfully! {date} {time}"
     else:
